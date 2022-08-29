@@ -1,0 +1,24 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    height: 100px;
+    background-color: #343a40;
+}
+
+.logo {
+    width: 150px;
+    height: 100px;
+    margin-left: 60px;
+}
+
+.contents {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #f3f3f3;
+}

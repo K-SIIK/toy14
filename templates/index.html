@@ -2,9 +2,74 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+
+    <title>항해 뮤직</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="index.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+            integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="header">
+        <a href="index.html"><img src="https://ifh.cc/g/JG8Z8y.png" class="logo" alt="logo"></a>
+    </div>
+    <div class="contents">
+        <div class="list">
+            <h1 class="top50">TOP 50</h1>
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">순위</th>
+                    <th scope="col">앨범</th>
+                    <th scope="col">제목</th>
+                    <th scope="col">가수</th>
+                    <th scope="col">좋아요</th>
+                </tr>
+                </thead>
 
+                <tbody class="music_list">
+                    <tr class="music" onclick="location.href='comment.html'">
+                        <th scope="row">1</th>
+                        <td><img class="album"
+                                 src="//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/912/984/82912984_1661135567760_1_140x140.JPG/dims/resize/Q_80,0"
+                                 alt=""></td>
+                        <td>After LIKE</td>
+                        <td>Ive</td>
+                        <td>
+                            <button><span class="heart">🤍</span></button>
+                        </td>
+                    </tr>
+
+                    <tr class="music" onclick="location.href='comment.html'">
+                        <th scope="row">2</th>
+                        <td><img class= "album"src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/912/188/82912188_1660871762466_1_140x140.JPG/dims/resize/Q_80,0" alt=""></td>
+                        <td>Pink Venom</td>
+                        <td>Black Pink</td>
+                        <td><button><span class="heart">🤍</span></button></td>
+                    </tr>
+
+                    <tr class="music" onclick="location.href='comment.html'">
+                        <th scope="row">3</th>
+                        <td><img class="album" src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/842/800/82842800_1659340238924_1_140x140.JPG/dims/resize/Q_80,0" alt=""></td>
+                        <td>Attention</td>
+                        <td>NewJeans</td>
+                        <td><button><span class="heart">🤍</span></button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </body>
 </html>
+

@@ -1,0 +1,58 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+.header {
+    height: 100px;
+    background-color: #343a40;
+}
+
+.logo {
+    width: 150px;
+    height: 100px;
+    margin-left: 60px;
+}
+
+.contents {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    background-color: #f3f3f3;
+}
+
+.list {
+    width: 70%;
+}
+
+.top50 {
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.fa-regular fa-heart {
+    width: 30px;
+}
+
+.album {
+    width: 60px;
+}
+
+button {
+    background-color: transparent;
+    border: 0;
+}
+
+.heart {
+    font-size: 25px;
+}
+
+.music:hover {
+    cursor: pointer;
+    background-color: #302f2f;
+    transition: background-color 0.8s;
+}
+
+
