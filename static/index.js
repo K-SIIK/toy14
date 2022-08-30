@@ -3,10 +3,10 @@ $(document).ready(function (){
 });
 
 function listing() {
-    // $('.music_list').empty()
+    $('.music_list').empty()
 
     $.ajax({
-        type: 'GET',
+        type: "GET",
         url: '/music',
         data: {},
         success: function (response) {
@@ -45,12 +45,14 @@ function listing() {
                                     </td>
                                 </tr>`
                 }
+                $('.music_list').append(temp_html)
             }
         }
     })
 }
 
 function like_music(rank) {
+    rank.stopPropagation();
     $.ajax({
         type: 'POST',
         url: '/music/like',
@@ -61,3 +63,4 @@ function like_music(rank) {
         }
     })
 }
+
