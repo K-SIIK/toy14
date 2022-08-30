@@ -30,6 +30,7 @@ body {
 .top50 {
     margin-top: 70px;
     margin-bottom: 50px;
+    font-weight: bolder;
 }
 
 .fa-regular fa-heart {
@@ -48,6 +49,8 @@ button {
 .heart {
     font-size: 25px;
 }
+
+
 
 .music:hover {
     cursor: pointer;

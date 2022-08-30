@@ -16,12 +16,12 @@ for tr in trs:
     title = tr.select_one('td.info > a.title.ellipsis').text.strip()
     artist = tr.select_one('td.info > a.artist.ellipsis').text
     image = tr.select_one('td:nth-child(3) > a > img')['src']
-    like=0
     doc = {
         'rank': rank,
         'image': image,
         'title': title,
         'artist': artist,
-        'like':0
+        'like': False
     }
-    db.muiscs.insert_one(doc)
+
+    db.musics.insert_one(doc)
