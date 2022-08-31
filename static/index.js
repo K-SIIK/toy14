@@ -40,7 +40,7 @@ function listing() {
                 let temp_html = ``
 
                 if (like === false) {
-                    temp_html = `<tr class="music" onclick="move_page(${rank})">
+                    temp_html = `<tr class="music" onclick="location.href='/comment?rank=${rank}'">
                                     <th scope="row">${rank}</th>
                                     <td><img class="album"
                                              src="${image}"
@@ -52,7 +52,7 @@ function listing() {
                                     </td>
                                 </tr>`
                 } else {
-                    temp_html = `<tr class="music" onclick="move_page(${rank})">
+                    temp_html = `<tr class="music" onclick="location.href='/comment?rank=${rank}'">
                                     <th scope="row">${rank}</th>
                                     <td><img class="album"
                                              src="${image}"
@@ -95,18 +95,18 @@ function cancel_music(rank) {
     })
 }
 
-// $(()=>{
-//     let
-// })
+$(()=>{
+    let rank = window.document.URL.split("?rank=")[1];
+    move_page(rank)
+})
 
-function move_page(id) {
-    console.log(id)
+function move_page() {
     $.ajax({
         type: 'GET',
-        url: '/comment?id=${id}',
-        data: {'rank_give': rank},
+        url: '/comment?rank=${rank}',
+        data: {},
         success: function (response) {
-            alert('hi')
+
         }
     })
 }

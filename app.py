@@ -15,7 +15,7 @@ def home():
 
 @app.route('/music', methods=['GET'])
 def get_music():
-  music_list = list(db.musics.find({}, {'_id': False}))
+  music_list = list(db.musics.find({},{'_id': False}))
   return jsonify({'musics': music_list})
 
 
@@ -33,9 +33,14 @@ def cancel_music():
   return jsonify({'msg': '좋아요 취소'})
 
 
-@app.route('/comment', methods=['GET'])
+@app.route("/comment", methods=["GET"])
 def move_page():
+  rank = request.args["rank"]
+  print(rank)
+  post = db.musics.find_one({"rank": rank}, {"_id": False})
+  print(post)
   return render_template('comment.html')
+
 
 
 

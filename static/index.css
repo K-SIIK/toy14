@@ -72,6 +72,14 @@ button {
     font-size: 25px;
 }
 
+.link {
+    text-decoration: none;
+    color: black;
+}
+
+.link:hover {
+    text-decoration: none;
+}
 
 .music:hover {
     cursor: pointer;

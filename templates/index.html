@@ -48,38 +48,45 @@
                 </thead>
 
                 <tbody class="music_list">
-                <a class="music" onclick="move_page(1)">
-                    <tr>
+                    <tr class="music" onclick="location.href='comment.html'">
                         <th scope="row">1</th>
                         <td><img class="album"
-                                 src="//image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/912/984/82912984_1661135567760_1_140x140.JPG/dims/resize/Q_80,0"
-                                 alt=""></td>
-                        <td>After LIKE</td>
-                        <td>Ive</td>
-                        <td>
-                            <button><span class="heart">🤍</span></button>
-                        </td>
-                    </tr>
-                </a>
-
-                    <tr class="music" onclick="location.href='comment.html'">
-                        <th scope="row">2</th>
-                        <td><img class= "album"src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/912/188/82912188_1660871762466_1_140x140.JPG/dims/resize/Q_80,0" alt=""></td>
+                                 src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/912/188/82912188_1660871762466_1_140x140.JPG/dims/resize/Q_80,0"
+                                 alt="album"></td>
                         <td>Pink Venom</td>
                         <td>Black Pink</td>
-                        <td><button onclick="function like_music( e ){ e.stopPropagation() }"><span class="heart">🤍</span></button></td>
+                        <td onclick="event.cancelBubble=true">
+                            <button onclick="like_music(${rank})"><span class="heart">🤍  </span></button>
+                        </td>
                     </tr>
 
                     <tr class="music" onclick="location.href='comment.html'">
-                        <th scope="row">3</th>
-                        <td><img class="album" src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/842/800/82842800_1659340238924_1_140x140.JPG/dims/resize/Q_80,0" alt=""></td>
-                        <td>Attention</td>
-                        <td>NewJeans</td>
-                        <td><button><span class="heart">🤍</span></button></td>
+                        <th scope="row">1</th>
+                        <td><img class="album"
+                                 src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/912/188/82912188_1660871762466_1_140x140.JPG/dims/resize/Q_80,0"
+                                 alt="album"></td>
+                        <td>Pink Venom</td>
+                        <td>Black Pink</td>
+                        <td onclick="event.cancelBubble=true">
+                            <button onclick="like_music(${rank})"><span class="heart">🤍  </span></button>
+                        </td>
                     </tr>
+                    <tr class="music" onclick="location.href='comment.html'">
+                        <th scope="row">1</th>
+                        <td><img class="album"
+                                 src="https://image.genie.co.kr/Y/IMAGE/IMG_ALBUM/082/912/188/82912188_1660871762466_1_140x140.JPG/dims/resize/Q_80,0"
+                                 alt="album"></td>
+                        <td>Pink Venom</td>
+                        <td>Black Pink</td>
+                        <td onclick="event.cancelBubble=true">
+                            <button onclick="like_music(${rank})"><span class="heart">🤍  </span></button>
+                        </td>
+                    </tr>
+
                 </tbody>
             </table>
         </div>
+
     </div>
 
 
