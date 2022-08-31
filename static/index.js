@@ -9,7 +9,6 @@ function q1() {
         url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
         data: {},
         success: function (response) {
-            console.log(response)
             let temp = response['temp']
             let icon = response['icon']
             let city = response['city']
@@ -96,11 +95,15 @@ function cancel_music(rank) {
     })
 }
 
+// $(()=>{
+//     let
+// })
 
-function move_page(rank) {
+function move_page(id) {
+    console.log(id)
     $.ajax({
         type: 'GET',
-        url: '/comment',
+        url: '/comment?id=${id}',
         data: {'rank_give': rank},
         success: function (response) {
             alert('hi')
