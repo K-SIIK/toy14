@@ -1,26 +1,48 @@
-body {
-    padding: 0;
-    margin: 0;
+* {
+    font-family: 'Oswald', sans-serif;
+    scroll-behavior: smooth;
 }
 
-.header {
-    height: 100px;
-    background-color: #343a40;
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    height: 100vh;
+    width: 300px;
+    background-color: #8977AD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
 }
 
 .logo {
+    width: 210px;
+    height: 140px;
+    margin: auto;
+}
+
+.weather {
     width: 150px;
-    height: 100px;
-    margin-left: 60px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 20px;
 }
 
 .contents {
-    width: 100vw;
-    height: 100%;
+    width: calc(100% - 300px);
     display: flex;
     flex-direction: row;
     justify-content: center;
-    background-color: #f3f3f3;
+    background-color: #ffffff;
+    position: absolute;
+    left: 300px;
 }
 
 .list {
@@ -51,10 +73,9 @@ button {
 }
 
 
-
 .music:hover {
     cursor: pointer;
-    background-color: #302f2f;
+    background-color: #d3cbde;
     transition: background-color 0.8s;
 }
 

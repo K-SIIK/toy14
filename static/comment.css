@@ -1,30 +1,148 @@
-body {
-    padding: 0;
-    margin: 0;
+* {
+    font-family: 'Oswald', sans-serif;
+    scroll-behavior: smooth;
 }
 
-.header {
-    height: 100px;
-    background-color: #343a40;
+body {
+    display: flex;
+    flex-direction: row;
+}
+
+.navbar {
+    height: 100vh;
+    width: 300px;
+    background-color: #8977AD;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
 }
 
 .logo {
-    width: 150px;
-    height: 100px;
-    margin-left: 60px;
+    width: 210px;
+    height: 140px;
+    margin: auto;
 }
 
-.contents {
-    width: 100vw;
-    height: 100%;
+#profile {
+    width: 230px;
+    height: 230px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 6px solid #ffeacd;
+    margin: 10px 0 230px 0px;
+}
+
+.weather {
+    width: 150px;
     display: flex;
     flex-direction: row;
-    justify-content: center;
-    background-color: #f3f3f3;
+    justify-content: space-around;
+    margin-bottom: 30px;
+    color: #ffffff;
+    font-size: 20px;
 }
 
-card {
+
+
+.section {
+    width: calc(100% - 300px);
+    height: 100vh;
+    position: absolute;
+    left: 350px;
+    padding: 100px;
+}
+
+.title {
+    font-weight: bolder;
+    color: #384b5e;
+    font-size: 80px;
+    margin-bottom: 50px;
+}
+
+span {
+    color: #8977AD;
+}
+
+.debut, .birthday {
+    color: #6f89a2;
+    line-height: 30px;
+}
+
+.detail {
+    padding: 16px 0px;
+    font-size: 19px;
+    line-height: 28px;
+}
+
+.icons {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    list-style-type: none;
+    padding: 0;
+}
+
+.icon {
+    font-size: 50px;
+    padding-right: 30px;
+}
+
+.icon > a {
+    color: #384b5e;
+}
+
+.image {
+    display: flex;
+    flex-direction: row;;
+}
+
+
+.container {
+    display: flex;
+    overflow-x: auto;
+}
+
+.container img {
+    width: 350px;
+    height: 350px;
+    margin: 0 30px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+.card {
     width: 400px;
     margin-bottom: 10px;
     margin-right: 30px;
+}
+
+#post {
+    width: 400px;
+    height: 400px;
+    padding: 20px;
+    border-radius: 10px;
+    background-color: #dcdbdb;
+}
+
+
+#post button {
+    width: 360px;
+    margin-top: 20px;
+}
+
+.outer {
+    display: flex;
+    flex-direction: row;
+}
+
+.con {
+    width: 450px;
+    height: 400px;
+    overflow-y: auto;
+}
+
+.card-body {
+    background-color: #dcdbdb;
 }
