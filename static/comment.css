@@ -163,3 +163,13 @@ span {
     right: 70%;
     display: none;
 }
+
+#edit-box{
+    width :500px;
+    height:450px;
+    background-color:white;
+    position :absolute;
+    top: 50%;
+    right: 70%;
+    display: none;
+}

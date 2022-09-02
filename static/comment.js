@@ -1,9 +1,6 @@
 $(document).ready(function () {
     q1()
-    show_comment()
-    const rank = window.document.URL.split("?rank=")[1];
-    get_comment(rank);
-
+    show_comment();
 });
 
 
@@ -51,7 +48,6 @@ function show_comment() {
         url: "/comment/receive",
         date: {}, success: function (response) {
             let rows = response['comments']
-            console.log(rows)
             for (let i = 0; i < rows.length; i++) {
                 let num = rows[i]['num']
                 let nickname = rows[i]['nickname']
@@ -78,6 +74,7 @@ function show_comment() {
         }
     })
 }
+
 function delete_box(num) {
 
     $('#delete-box').show()
@@ -109,4 +106,70 @@ function cancel_btn() {
     $('#delete-box').hide()
 
     window.location.reload()
+}
+
+function open_edit(num) {
+    $('#edit-box').show()
+    $.ajax({
+        type: 'GET',
+        url: '/comment/edit',
+        data: {},
+        success: function (response) {
+            let rows = response['comments']
+            console.log(rows)
+            for (let i = 0; i < rows.length; i++) {
+
+                let num1 = rows[i]['num']
+                let nickname = rows[i]['nickname']
+                let comment = rows[i]['comment']
+
+                let temp_html = ``
+                if (num === num1) {
+                    temp_html = `<div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="nickname_e" value="${nickname}" placeholder="name@example.com">
+                                    <label for="correct nickname">수정할 닉네임</label>
+                                 </div>
+                                 <div class="form-floating mb-3">
+                                    <input type="text" class="form-control" id="comment_e" value="${comment}" placeholder="name@example.com">
+                                    <label for="correct comment">수정할 댓글</label>
+                                 </div>
+                                 <div class="mybtn">
+                                     <button onclick="edit_order(${num})" type="button" class="btn btn-dark">수정하기</button>
+                                     <button onclick="close_edit()" type="button" class="btn btn-outline-dark">닫기</button>
+                                 </div>`
+                } else {
+                    temp_html = ``
+                }
+                $('#edit-box').append(temp_html)
+
+            }
+
+
+        }
+    })
+
+}
+
+function close_edit() {
+    $('#edit-box').hide()
+
+    window.location.reload()
+
+}
+
+
+function edit_order(num) {
+    let nickname = $('#nickname_e').val()
+    let comment = $('#comment_e').val()
+
+    $.ajax({
+        type: "POST",
+        url: "/save/edit_comment",
+        data: {num_give:num, 'nickname_give': nickname, 'comment_give': comment},
+        success: function (response) {
+            alert(response["msg"])
+
+            window.location.reload()
+        }
+    });
 }
