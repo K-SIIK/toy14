@@ -97,14 +97,4 @@ function cancel_music(rank) {
 }
 
 
-function move_page(rank) {
-    $.ajax({
-        type: 'GET',
-        url: '/comment',
-        data: {'rank_give': rank},
-        success: function (response) {
-            alert('hi')
-        }
-    })
-}
 
