@@ -2,7 +2,6 @@ $(document).ready(function () {
     q1();
     const rank = window.document.URL.split("?rank=")[1];
     move_page(rank)
-    show_comment(rank)
 });
 
 

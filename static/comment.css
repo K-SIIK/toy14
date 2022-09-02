@@ -46,7 +46,9 @@ body {
 
 .weather p {
     margin-bottom: 0;
+    margin-top: 5px;
 }
+
 
 
 
@@ -69,7 +71,7 @@ body {
 
 span {
     color: #8977AD;
-    margin-right: 30px;
+    margin-right: 20px;
 }
 
 .debut, .birthday {
