@@ -26,13 +26,18 @@ body {
 }
 
 .weather {
-    width: 150px;
+    width: 180px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-bottom: 30px;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 23px;
+}
+
+
+.weather p {
+    margin-bottom: 0;
 }
 
 .contents {

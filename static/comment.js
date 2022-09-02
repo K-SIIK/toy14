@@ -1,7 +1,9 @@
 $(document).ready(function () {
     q1();
-    listing();
+    const rank = window.document.URL.split("?rank=")[1];
+    get_comment(rank)
 });
+
 
 function q1() {
     $.ajax({
@@ -14,58 +16,23 @@ function q1() {
             let city = response['city']
 
             $('#city').text(city)
-            $('#degree').text(temp)
+            $('#degree').text(temp.toFixed(1) + ' °C')
             $('#icon').attr('src', icon)
         }
     })
 }
 
 
-function listing() {
-    $('.con').empty()
-
+function get_comment(rank) {
     $.ajax({
         type: "GET",
-        url: '/comment?rank=${rank}',
+        url: `/comment/view?rank=${rank}`,
         data: {},
         success: function (response) {
-            let rows = response['musics']
-            for (let i = 0; i < rows.length; i++) {
-                let rank = rows[i]['rank']
-                let image = rows[i]['image']
-                let title = rows[i]['title']
-                let artist = rows[i]['artist']
-                let like = rows[i]['like']
-
-                let temp_html = ``
-
-                if (like === false) {
-                    temp_html = `<tr class="music" onclick="location.href='/comment?rank=${rank}'">
-                                    <th scope="row">${rank}</th>
-                                    <td><img class="album"
-                                             src="${image}"
-                                             alt="album"></td>
-                                    <td>${title}</td>
-                                    <td>${artist}</td>
-                                    <td onclick="event.cancelBubble=true">
-                                        <button onclick="like_music(${rank})"><span class="heart">🤍  </span></button>
-                                    </td>
-                                </tr>`
-                } else {
-                    temp_html = `<tr class="music" onclick="location.href='/comment?rank=${rank}'">
-                                    <th scope="row">${rank}</th>
-                                    <td><img class="album"
-                                             src="${image}"
-                                             alt="album"></td>
-                                    <td>${title}</td>
-                                    <td>${artist}</td>
-                                    <td onclick="event.cancelBubble=true">
-                                        <button onclick="cancel_music(${rank})"><span class="heart">❤️</span></button>
-                                    </td>
-                                </tr>`
-                }
-                $('.music_list').append(temp_html)
-            }
+            const {title, image} = response
+            $('#artist').append(`<p>${title}</p>`)
+            $('#album').attr('src',image)
         }
     })
 }
+

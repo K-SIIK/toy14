@@ -14,7 +14,7 @@ function q1() {
             let city = response['city']
 
             $('#city').text(city)
-            $('#degree').text(temp)
+            $('#degree').text(temp.toFixed(1) + ' °C')
             $('#icon').attr('src', icon)
         }
     })
@@ -95,19 +95,4 @@ function cancel_music(rank) {
     })
 }
 
-$(()=>{
-    let rank = window.document.URL.split("?rank=")[1];
-    move_page(rank)
-})
-
-function move_page() {
-    $.ajax({
-        type: 'GET',
-        url: '/comment?rank=${rank}',
-        data: {},
-        success: function (response) {
-
-        }
-    })
-}
 
