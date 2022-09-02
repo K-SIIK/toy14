@@ -1,7 +1,8 @@
 $(document).ready(function () {
     q1();
     const rank = window.document.URL.split("?rank=")[1];
-    get_comment(rank)
+    move_page(rank)
+    show_comment(rank)
 });
 
 
@@ -23,7 +24,7 @@ function q1() {
 }
 
 
-function get_comment(rank) {
+function move_page(rank) {
     $.ajax({
         type: "GET",
         url: `/comment/view?rank=${rank}`,
@@ -31,8 +32,9 @@ function get_comment(rank) {
         success: function (response) {
             const {title, image} = response
             $('#artist').append(`<p>${title}</p>`)
-            $('#album').attr('src',image)
+            $('#album').attr('src', image)
         }
     })
 }
+
 

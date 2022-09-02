@@ -38,14 +38,11 @@ def move_page():
   return render_template("comment.html")
 
 
-
-
 @app.route("/comment/view", methods=["GET"])
 def show_page():
   rank = int(request.args["rank"])
   music_info = db.musics.find_one({"rank": rank}, {"_id": False})
   return jsonify(music_info)
-
 
 
 if __name__ == '__main__':

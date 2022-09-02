@@ -18,6 +18,7 @@ for tr in trs:
   title = tr.select_one('td.info > a.title.ellipsis').text.strip()
   artist = tr.select_one('td.info > a.artist.ellipsis').text
   image = tr.select_one('td:nth-child(3) > a > img')['src']
+
   if '19금' in title:
     title = title.strip('19금').strip()
   if '(' in title:
@@ -29,7 +30,8 @@ for tr in trs:
     'image': image,
     'title': title,
     'artist': artist,
-    'like': False
+    'like': False,
+    'comment': []
   }
 
   db.musics.insert_one(doc)
