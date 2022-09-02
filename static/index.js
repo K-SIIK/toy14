@@ -9,13 +9,12 @@ function q1() {
         url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
         data: {},
         success: function (response) {
-            console.log(response)
             let temp = response['temp']
             let icon = response['icon']
             let city = response['city']
 
             $('#city').text(city)
-            $('#degree').text(temp)
+            $('#degree').text(temp.toFixed(1) + ' °C')
             $('#icon').attr('src', icon)
         }
     })
@@ -41,7 +40,7 @@ function listing() {
                 let temp_html = ``
 
                 if (like === false) {
-                    temp_html = `<tr class="music" onclick="move_page(${rank})">
+                    temp_html = `<tr class="music" onclick="location.href='/comment?rank=${rank}'">
                                     <th scope="row">${rank}</th>
                                     <td><img class="album"
                                              src="${image}"
@@ -53,7 +52,7 @@ function listing() {
                                     </td>
                                 </tr>`
                 } else {
-                    temp_html = `<tr class="music" onclick="move_page(${rank})">
+                    temp_html = `<tr class="music" onclick="location.href='/comment?rank=${rank}'">
                                     <th scope="row">${rank}</th>
                                     <td><img class="album"
                                              src="${image}"
@@ -95,6 +94,5 @@ function cancel_music(rank) {
         }
     })
 }
-
 
 

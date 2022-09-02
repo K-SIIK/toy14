@@ -25,9 +25,9 @@ body {
     margin: auto;
 }
 
-#profile {
-    width: 230px;
-    height: 230px;
+#album {
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     border-radius: 50%;
     border: 6px solid #ffeacd;
@@ -35,13 +35,17 @@ body {
 }
 
 .weather {
-    width: 150px;
+    width: 180px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     margin-bottom: 30px;
     color: #ffffff;
-    font-size: 20px;
+    font-size: 23px;
+}
+
+.weather p {
+    margin-bottom: 0;
 }
 
 
@@ -55,14 +59,17 @@ body {
 }
 
 .title {
-    font-weight: bolder;
+    font-weight: bold;
     color: #384b5e;
     font-size: 80px;
     margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
 }
 
 span {
     color: #8977AD;
+    margin-right: 30px;
 }
 
 .debut, .birthday {
@@ -116,6 +123,7 @@ span {
     width: 400px;
     margin-bottom: 10px;
     margin-right: 30px;
+    border: 3px solid #dcdbdb;
 }
 
 #post {
