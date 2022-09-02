@@ -54,11 +54,11 @@ function show_comment() {
                 let comment = rows[i]['comment']
                 let temp_html = `<div class="card">
                                     <div class="card-body">
-                                        <blockquote class="blockquote mb-0">
+                                        <blockquote class="blockquote mb-0" id="writeplace">
                                             <p>${comment}</p>
                                             <footer class="blockquote-footer">${nickname}</footer>
                                         </blockquote>
-                                        <div class="buttongroup">
+                                        <div class="buttongroup" id="buttonplace">
                                             <button onclick="open_edit(${num})" type="button" class="btn btn-outline-secondary btn-sm">
                                                 수정
                                             </button>
@@ -165,7 +165,7 @@ function edit_order(num) {
     $.ajax({
         type: "POST",
         url: "/save/edit_comment",
-        data: {num_give:num, 'nickname_give': nickname, 'comment_give': comment},
+        data: {num_give:num, nickname_give: nickname, comment_give: comment},
         success: function (response) {
             alert(response["msg"])
 
