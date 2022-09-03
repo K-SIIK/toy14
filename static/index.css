@@ -10,8 +10,8 @@ body {
 
 .navbar {
     height: 100vh;
-    width: 300px;
-    background-color: #8977AD;
+    width: 250px;
+    background-color: #384b5e;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,9 +20,9 @@ body {
 }
 
 .logo {
-    width: 210px;
-    height: 140px;
-    margin: auto;
+    width: 180px;
+    height: 120px;
+    margin: 20px auto;
 }
 
 .weather {
@@ -43,13 +43,13 @@ body {
 }
 
 .contents {
-    width: calc(100% - 300px);
+    width: calc(100% - 250px);
     display: flex;
     flex-direction: row;
     justify-content: center;
     background-color: #ffffff;
     position: absolute;
-    left: 300px;
+    left: 250px;
 }
 
 .list {
@@ -90,7 +90,7 @@ button {
 
 .music:hover {
     cursor: pointer;
-    background-color: #d3cbde;
+    background-color: #9ac0e0;
     transition: background-color 0.8s;
 }
 

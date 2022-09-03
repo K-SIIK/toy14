@@ -13,6 +13,7 @@ data = requests.get('https://www.genie.co.kr/chart/top200?ditc=M&rtm=N&ymd=20210
 soup = BeautifulSoup(data.text, 'html.parser')
 
 trs = soup.select('#body-content > div.newest-list > div > table > tbody > tr')
+
 for tr in trs:
   rank = tr.select_one('td.number').text[0:2].strip()
   title = tr.select_one('td.info > a.title.ellipsis').text.strip()
@@ -30,8 +31,9 @@ for tr in trs:
     'image': image,
     'title': title,
     'artist': artist,
-    'like': False,
-    'comment': []
+    'like': False
   }
 
   db.musics.insert_one(doc)
+
+

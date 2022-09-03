@@ -45,5 +45,60 @@ def show_page():
   return jsonify(music_info)
 
 
+# 복붙
+
+@app.route("/comment/post", methods=["POST"])
+def save_comment():
+  rank = int(request.args["rank"])
+  nickname_receive = request.form["nickname_give"]
+  comment_receive = request.form["comment_give"]
+
+  comment_list = list(db.comment.find({'rank': rank}, {'_id': False}))
+  count = len(comment_list) + 1
+
+  doc = {
+    'rank': rank,
+    'num': count,
+    'nickname': nickname_receive,
+    'comment': comment_receive
+  }
+
+  db.comment.insert_one(doc)
+  return jsonify({'msg': '응원 완료!'})
+
+
+@app.route("/comment/show", methods=["GET"])
+def show_comment():
+  rank = int(request.args["rank"])
+
+  comment_list = list(db.comment.find({'rank': rank}, {'_id': False}))
+  return jsonify({'comments': comment_list})
+
+
+@app.route("/comment/delete", methods=["POST"])
+def delete_post():
+  rank = int(request.args["rank"])
+  num_receive = int(request.form['num_give'])
+  db.comment.delete_one({"rank": rank, "num": num_receive})
+  return jsonify({'msg': '삭제 완료!'})
+
+
+@app.route("/comment/edit", methods=["GET"])
+def open_edit():
+  comment_list = list(db.comment.find({}, {'_id': False}))
+  return jsonify({'comments': comment_list})
+
+
+# @app.route("/save/edit_comment", methods=["POST"])
+# def edit_post():
+#   num_receive = request.form['num_give']
+#   nickname_receive = request.form['nickname_give']
+#   comment_receive = request.form['comment_give']
+#
+#   db.comment.update_one({'num': int(num_receive)},
+#                         {'$set': {'nickname': nickname_receive, 'comment': comment_receive}})
+#   return jsonify({'msg': '수정 완료!'})
+
+
 if __name__ == '__main__':
   app.run('0.0.0.0', port=5000, debug=True)

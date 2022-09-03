@@ -23,7 +23,7 @@
 
 <body>
     <div class="navbar">
-        <a href="/"><img src="https://ifh.cc/g/k5H58y.png" class="logo" alt="logo"></a>
+        <a href="/"><img src="https://ifh.cc/g/p2blGN.png" class="logo" alt="logo"></a>
         <img id="album" src="" alt="profile">
 
 
@@ -39,16 +39,16 @@
         <div class="outer">
             <div class="card" id="post">
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="name" placeholder="nickname">
+                    <input type="email" class="form-control" id="nickname" placeholder="nickname">
                 </div>
                 <div class="form-floating">
                         <textarea class="form-control" placeholder="Leave a comment here" id="comment"
-                                  style="height: 220px"></textarea>
+                                  style="height: 300px"></textarea>
                 </div>
-                <button type="button" class="btn btn-secondary">post</button>
+                <button id="post-button" onclick="" type="button" class="btn btn-secondary">post</button>
             </div>
-            <div class="con">
-                <div class="card">
+            <div class="con" id="comment-list">
+                <div class="card" >
                     <div class="card-body">
                         <blockquote class="blockquote mb-0">
                             <p>I LOVE YOU!!!</p>
@@ -81,7 +81,10 @@
                     </div>
                 </div>
             </div>
+
         </div>
+        <div id="delete-box"></div>
+        <div class="edit-box"></div>
     </div>
 
 
