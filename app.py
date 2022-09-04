@@ -45,15 +45,13 @@ def show_page():
   return jsonify(music_info)
 
 
-# 복붙
-
 @app.route("/comment/post", methods=["POST"])
 def save_comment():
   rank = int(request.args["rank"])
   nickname_receive = request.form["nickname_give"]
   comment_receive = request.form["comment_give"]
 
-  comment_list = list(db.comment.find({'rank': rank}, {'_id': False}))
+  comment_list = list(db.comment.find({"rank": rank}, {'_id': False}))
   count = len(comment_list) + 1
 
   doc = {
@@ -80,24 +78,37 @@ def delete_post():
   rank = int(request.args["rank"])
   num_receive = int(request.form['num_give'])
   db.comment.delete_one({"rank": rank, "num": num_receive})
+
+  delete_info = list(db.comment.find({"rank": rank, "num": {"$gt": num_receive}}))
+  cnt = len(delete_info)
+
+  if cnt != 0:
+    for i in range(num_receive + 1, num_receive + cnt + 1):
+      db.comment.update_one({"rank": rank, "num": i}, {'$set': {"num": i - 1}})
+
+
   return jsonify({'msg': '삭제 완료!'})
 
 
-@app.route("/comment/edit", methods=["GET"])
+@app.route("/comment/edit", methods=["POST"])
 def open_edit():
-  comment_list = list(db.comment.find({}, {'_id': False}))
-  return jsonify({'comments': comment_list})
+  rank = int(request.args["rank"])
+  num_recieve = int(request.form["num_give"])
+
+  comment = db.comment.find_one({"rank": rank, "num": num_recieve}, {'_id': False})
+  return jsonify(comment)
 
 
-# @app.route("/save/edit_comment", methods=["POST"])
-# def edit_post():
-#   num_receive = request.form['num_give']
-#   nickname_receive = request.form['nickname_give']
-#   comment_receive = request.form['comment_give']
-#
-#   db.comment.update_one({'num': int(num_receive)},
-#                         {'$set': {'nickname': nickname_receive, 'comment': comment_receive}})
-#   return jsonify({'msg': '수정 완료!'})
+@app.route("/comment/resave", methods=["POST"])
+def edit_post():
+  rank = int(request.args["rank"])
+  num_receive = int(request.form['num_give'])
+  nickname_receive = request.form['nickname_give']
+  comment_receive = request.form['comment_give']
+
+  db.comment.update_one({'rank':rank, 'num': int(num_receive)},
+                        {'$set': {'nickname': nickname_receive, 'comment': comment_receive}})
+  return jsonify({'msg': '수정 완료!'})
 
 
 if __name__ == '__main__':

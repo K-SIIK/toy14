@@ -188,6 +188,20 @@ span {
     display: none;
 }
 
+#edit-box {
+    padding: 40px 30px 20px 40px;
+    width: 360px;
+    height: 180px;
+    background-color: #d6d8d9;
+    box-shadow: 5px 5px 5px grey;
+    border: 3px solid #c6c8ca;
+    border-radius: 7px;
+    position: absolute;
+    top: 35%;
+    right: 35%;
+    display: none;
+}
+
 #delete-box h3 {
     margin-bottom: 30px;
     font-weight: bold;

@@ -33,7 +33,6 @@ function move_page(rank) {
             const {rank, title, image} = response
             $('#artist').append(`<p>${title}</p>`)
             $('#album').attr('src', image)
-            // $('#post-button').removeAttr('onclick')
             $('#post-button').attr('onclick', `save_comment(${rank})`)
         }
     })
@@ -53,7 +52,7 @@ function save_comment(rank) {
             url: `/comment/post?rank=${rank}`,
             data: {'nickname_give': nickname, 'comment_give': comment},
             success: function (response) {
-                alert(response["msg"])
+                // alert(response["msg"])
                 window.location.reload()
             }
         });
@@ -118,7 +117,6 @@ function delete_btn(rank, num) {
         url: `/comment/delete?rank=${rank}&${num}`,
         data: {num_give: num},
         success: function (response) {
-            console.log(rank, num)
             window.location.reload()
         }
     });
@@ -127,73 +125,42 @@ function delete_btn(rank, num) {
 
 function cancel_btn() {
     $('#delete-box').hide()
-
     window.location.reload()
 }
 
 
 function open_edit(rank, num) {
-    $('#edit-box').show() // html 없음
     $.ajax({
-        type: 'GET',
+        type: 'POST',
         url: `/comment/edit?rank=${rank}&${num}`,
-        data: {},
+        data: {num_give: num},
         success: function (response) {
-            let rows = response['comments']
-            console.log(rows)
-            for (let i = 0; i < rows.length; i++) {
-                let num1 = rows[i]['num']
-                let nickname = rows[i]['nickname']
-                let comment = rows[i]['comment']
+            const {nickname, comment} = response
 
-                let temp_html = ``
-                if (num === num1) {
-                    temp_html = `<div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="nickname_e" value="${nickname}" placeholder="name@example.com">
-                                    <label for="correct nickname">수정할 닉네임</label>
-                                 </div>
-                                 <div class="form-floating mb-3">
-                                    <input type="text" class="form-control" id="comment_e" value="${comment}" placeholder="name@example.com">
-                                    <label for="correct comment">수정할 댓글</label>
-                                 </div>
-                                 <div class="mybtn">
-                                     <button onclick="edit_order(${num})" type="button" class="btn btn-dark">수정하기</button>
-                                     <button onclick="close_edit()" type="button" class="btn btn-outline-dark">닫기</button>
-                                 </div>`
-                } else {
-                    temp_html = ``
-                }
-                $('#edit-box').append(temp_html)
-
-            }
-
-
+            $('#nickname').attr('value', `${nickname}`)
+            $('#comment').val(`${comment}`)
+            $('#post-button').text('수정')
+            $('#post-button').removeAttr('onclick')
+            $('#post-button').attr('onclick',`edit_order(${rank},${num})`)
+            $('#post').attr('style', "background-color: #384b5e;")
         }
     })
 
 }
 
 
-// function close_edit() {
-//     $('#edit-box').hide()
-//
-//     window.location.reload()
-//
-// }
-//
-//
-// function edit_order(num) {
-//     let nickname = $('#nickname_e').val()
-//     let comment = $('#title_e').val()
-//
-//     $.ajax({
-//         type: "POST",
-//         url: "/save/edit_comment",
-//         data: {num_give: num, nickname_give: nickname, comment_give: comment},
-//         success: function (response) {
-//             alert(response["msg"])
-//
-//             window.location.reload()
-//         }
-//     });
-// }
+
+function edit_order(rank, num) {
+    let nickname = $('#nickname').val()
+    let comment = $('#comment').val()
+
+    $.ajax({
+        type: "POST",
+        url: `/comment/resave?rank=${rank}&${num}`,
+        data: {num_give: num, "nickname_give": nickname, "comment_give": comment},
+        success: function (response) {
+            alert(response["msg"])
+            window.location.reload()
+        }
+    });
+}
